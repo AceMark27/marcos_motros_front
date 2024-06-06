@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/stylesCart.css">
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="home.html">
+                <img src="https://uploaddeimagens.com.br/images/004/790/913/full/Captura_de_tela_2024-06-02_114525.png?1717339571" alt="Logo Carros" style="max-width: 100px; max-height: 40px; margin-right: 10px;">Marcos Motors
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Modelos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cadastro.html">Cadastro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrinho.html">Carrinho</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Carrinho -->
+        <div class="container my-4">
+            <h1>Carrinho de Compras</h1>
+            <div v-if="carrinho.length === 0">
+                <p>Seu carrinho está vazio.</p>
+            </div>
+            <div v-else>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Imagem</th>
+                            <th>Nome</th>
+                            <th>Preço</th>
+                            <th>Ano</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="carro in carrinho" :key="carro.id">
+                            <td><img :src="carro.imagemUrl" class="img-thumbnail" alt="Imagem do carro"></td>
+                            <td>{{ carro.nome }}</td>
+                            <td>R$ {{ carro.preco.toLocaleString('pt-BR') }}</td>
+                            <td>{{ carro.ano }}</td>
+                            <td>
+                                <button @click="removerDoCarrinho(carro.id)" class="btn btn-danger">Remover</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-right">
+                    <h4>Total: R$ {{ total.toLocaleString('pt-BR') }}</h4>
+                    <button class="btn btn-success" @click="finalizarCompra">Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="py-4 bg-dark text-white-50">
+            <div class="container text-center">
+                <small>© 2024 Marcos Motors. Todos os direitos reservados.</small>
+                <div class="footer-icons mt-2">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/AceStudios07"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/oimarcoscn/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://br.linkedin.com/in/marcos-correa-nunes-1b882a266"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                carrinho: []
+            },
+            computed: {
+                total() {
+                    return this.carrinho.reduce((acc, carro) => acc + carro.preco, 0);
+                }
+            },
+            methods: {
+                removerDoCarrinho(carroId) {
+                    this.carrinho = this.carrinho.filter(carro => carro.id !== carroId);
+                },
+                finalizarCompra() {
+                    alert('Compra finalizada!');
+                    // Resetar o carrinho
+                    this.carrinho = [];
+                }
+            },
+            mounted() {
+                // Simular carregamento do carrinho com alguns carros
+                this.carrinho = [
+                    { id: 1, nome: 'Ford Mustang', descricao: 'Descrição do Ford Mustang', imagemUrl: 'https://cdn.motor1.com/images/mgl/L3kkPl/s1/lancamento-ford-mustang-de-setima-geracao-no-brasil.jpg', marca: 'Ford', preco: 50000, ano: 2022 },
+                    { id: 2, nome: 'Chevrolet Camaro', descricao: 'Descrição do Chevrolet Camaro', imagemUrl: 'https://s2-autoesporte.glbimg.com/PqPPQ-men0qvcDkp37FxSWzYgQQ=/0x0:620x413/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2020/O/c/H06CbARCAMMs8AR9hNtg/2016-03-24-chevrolet-camaro-transformers-2010-1600x1200-wallpaper-01.png', marca: 'Ford', preco: 50000, ano: 2022 },
+                    // Adicionar mais carros conforme necessário
+                ];
+            }
+        });
+    </script>
+</body>
+</html>

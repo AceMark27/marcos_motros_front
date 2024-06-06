@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Modelos de Carros</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/stylesModels.css">
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.jumbotron {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.card {
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background-color: #ff5733;
+    border-color: #ff5733;
+}
+
+.btn-primary:hover {
+    background-color: #c70039;
+    border-color: #c70039;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #218838;
+}
+
+.jumbotron {
+    position: relative;
+    overflow: hidden;
+}
+
+.jumbotron .container {
+    position: relative;
+    z-index: 2;
+}
+
+.jumbotron:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.card-container {
+    position: relative;
+}
+.card {
+    background-color: #2c3e50;
+    width: 500px;
+    border: none;
+    margin: 20px 60px;
+}
+.card-title{
+    color: #818181;
+}
+.card-text {
+    color: #ecf0f1;
+}
+.card img {
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
+}
+.card .row {
+    height: 250px;
+    width: 500px;
+}
+.bg-dark {
+    background-color: #2c3e50 !important;
+}
+
+.cardDepoimento {
+    background-color: #2c3e50;
+    border: none;
+    margin: 20px 0;
+}
+.cardDepoimento .row {
+    height: 250px;
+    width: 500px;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+.footer-icons i {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: #ecf0f1;
+}
+
+.footer-icons i:hover {
+    color: #ff4c4c;
+}
+
+.carousel-item img {
+    height: 300px; /* Ajuste conforme necessário */
+    object-fit: cover; /* Redimensionar a imagem para cobrir o contêiner mantendo a proporção */
+}
+#carousel-container {
+    background-color: #283747; /* Cor de fundo azul escuro */
+    width: 100%; /* 70% do tamanho da tela */
+    margin: 0 auto; /* Centralizar horizontalmente */
+    padding: 150px; /* Espaçamento interno */
+  }
+
+  /* Definindo a altura do carrossel */
+  #carouselExampleIndicators {
+    height: 600px; /* Ajuste conforme necessário */
+  }
+
+  /* Estilizando as imagens do carrossel */
+  .carousel-item img {
+    height: 100%; /* Assegura que a imagem preencha toda a altura do contêiner */
+    object-fit: cover; /* Redimensiona a imagem para cobrir o contêiner mantendo a proporção */
+  }
+
+  footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+.footer-icons i {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: #ecf0f1;
+}
+
+.footer-icons i:hover {
+    color: #ff4c4c;
+}
+.hero-section {
+    background: url('https://images.hdqwalls.com/wallpapers/toyota-supra-mk5-er.jpg') center center no-repeat;
+    background-size: cover;
+    height: 300px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+        /* Estilos personalizados */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar-brand img {
+            max-width: 100px;
+            max-height: 40px;
+            margin-right: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        .hero-section {
+            background: url('https://wallpapercave.com/wp/wp9074194.jpg') center center no-repeat;
+            background-size: cover;
+            height: 300px;
+            color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .filter-section {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .filter-section h5 {
+            margin-bottom: 15px;
+        }
+
+        .filter-section .btn-primary {
+            background-color: #ff4c4c;
+            border: none;
+        }
+
+        .filter-section .btn-primary:hover {
+            background-color: #e04343;
+        }
+
+        .card {
+            background-color: #ffffff;;
+            border: none;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .card-text {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #ff4c4c;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #e04343;
+        }
+
+        .pagination {
+            justify-content: center;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+
+        .footer-icons i {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: #ecf0f1;
+        }
+
+        .footer-icons i:hover {
+            color: #ff4c4c;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="home.html">
+                <img src="https://uploaddeimagens.com.br/images/004/790/913/full/Captura_de_tela_2024-06-02_114525.png?1717339571" alt="Logo Carros" style="max-width: 100px; max-height: 40px; margin-right: 10px;">Marcos Motors
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Modelos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cadastro.html">Cadastro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrinho.html">Carrinho</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1>Bem-vindo à Marcos Motors</h1>
+        </div>
+
+        <!-- Barra de Pesquisa e Filtros -->
+        <div class="container my-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="filter-section">
+                        <h5>Filtrar por:</h5>
+                        <form @submit.prevent="aplicarFiltros">
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="filtro-marca">Marca</label>
+                                    <select class="form-control" v-model="filtros.marca">
+                                        <option>Todos</option>
+                                        <option>Ford</option>
+                                        <option>Chevrolet</option>
+                                        <option>Fiat</option>
+                                        <option>Volkswagen</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="filtro-preco">Faixa de Preço</label>
+                                    <select class="form-control" v-model="filtros.preco">
+                                        <option>Todos</option>
+                                        <option>Abaixo de 30.000</option>
+                                        <option>30.000 - 60.000</option>
+                                        <option>Acima de 60.000</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="filtro-ano">Ano</label>
+                                    <select class="form-control" v-model="filtros.ano">
+                                        <option>Todos</option>
+                                        <option>2022</option>
+                                        <option>2021</option>
+                                        <option>2020</option>
+                                        <option>2019</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Aplicar Filtros</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de Modelos -->
+        <div class="container">
+            <div class="row">
+                <div v-for="carro in carrosFiltrados" :key="carro.id" class="col-md-6 col-lg-4 d-flex align-items-stretch">
+                    <div class="card">
+                        <img :src="carro.imagemUrl" class="card-img-top" alt="Imagem do carro">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ carro.nome }}</h5>
+                            <p class="card-text">{{ carro.descricao }}</p>
+                            <a :href="'carro-detalhe.html?id=' + carro.id" class="btn btn-primary">Ver Detalhes</a>
+                            <form @submit.prevent="adicionarAoCarrinho(carro.id)" class="mt-2">
+                                <button type="submit" class="btn btn-success">Adicionar ao Carrinho</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paginação -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item" :class="{ disabled: paginaAtual === 1 }">
+                        <a class="page-link" href="#" @click.prevent="paginaAtual--">Anterior</a>
+                    </li>
+                    <li class="page-item" v-for="pagina in paginas" :key="pagina" :class="{ active: pagina === paginaAtual }">
+                        <a class="page-link" href="#" @click.prevent="paginaAtual = pagina">{{ pagina }}</a>
+                    </li>
+                    <li class="page-item" :class="{ disabled: paginaAtual === paginas }">
+                        <a class="page-link" href="#" @click.prevent="paginaAtual++">Próximo</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Footer -->
+        <footer class="py-4 bg-dark text-white-50">
+            <div class="container text-center">
+                <small>© 2024 Marcos Motors. Todos os direitos reservados.</small>
+                <div class="footer-icons mt-2">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/AceStudios07"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/oimarcoscn/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://br.linkedin.com/in/marcos-correa-nunes-1b882a266"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                carros: [], // Lista de carros a ser carregada dinamicamente
+                filtros: {
+                    marca: 'Todos',
+                    preco: 'Todos',
+                    ano: 'Todos'
+                },
+                paginaAtual: 1,
+                itensPorPagina: 6
+            },
+            computed: {
+                carrosFiltrados() {
+                    // Filtrar carros com base nos filtros selecionados
+                    return this.carros.filter(carro => {
+                        return (this.filtros.marca === 'Todos' || carro.marca === this.filtros.marca) &&
+                               (this.filtros.preco === 'Todos' || this.verificarPreco(carro.preco)) &&
+                               (this.filtros.ano === 'Todos' || carro.ano === this.filtros.ano);
+                    }).slice((this.paginaAtual - 1) * this.itensPorPagina, this.paginaAtual * this.itensPorPagina);
+                },
+                paginas() {
+                    return Math.ceil(this.carros.length / this.itensPorPagina);
+                }
+            },
+            methods: {
+                aplicarFiltros() {
+                    // Método para aplicar os filtros
+                    this.paginaAtual = 1;
+                },
+                verificarPreco(preco) {
+                    if (this.filtros.preco === 'Abaixo de 30.000') return preco < 30000;
+                    if (this.filtros.preco === '30.000 - 60.000') return preco >= 30000 && preco <= 60000;
+                    if (this.filtros.preco === 'Acima de 60.000') return preco > 60000;
+                    return true;
+                },
+                adicionarAoCarrinho(carroId) {
+                    // Método para adicionar o carro ao carrinho
+                    alert('Carro ' + carroId + ' adicionado ao carrinho!');
+                }
+            },
+            mounted() {
+                // Carregar a lista de carros (exemplo estático)
+                this.carros = [
+                    { id: 1, nome: 'Ford Mustang', descricao: 'Descrição do Ford Mustang', imagemUrl: 'https://cdn.motor1.com/images/mgl/L3kkPl/s1/lancamento-ford-mustang-de-setima-geracao-no-brasil.jpg', marca: 'Ford', preco: 50000, ano: 2022 },
+                    { id: 2, nome: 'Chevrolet Camaro', descricao: 'Descrição do Chevrolet Camaro', imagemUrl: 'https://s2-autoesporte.glbimg.com/PqPPQ-men0qvcDkp37FxSWzYgQQ=/0x0:620x413/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2020/O/c/H06CbARCAMMs8AR9hNtg/2016-03-24-chevrolet-camaro-transformers-2010-1600x1200-wallpaper-01.png', marca: 'Chevrolet', preco: 60000, ano: 2021 },
+                    { id: 3, nome: 'Fiat Uno', descricao: 'Descrição do Fiat Uno', imagemUrl: 'https://quatrorodas.abril.com.br/wp-content/uploads/2016/11/56a280610e21630a3e0fc490qr-592-gb-uno-01.jpeg?quality=70&strip=all&strip=all', marca: 'Fiat', preco: 20000, ano: 2020 },
+                    { id: 4, nome: 'Volkswagen Gol', descricao: 'Descrição do Volkswagen Gol', imagemUrl: 'https://blog.olhonocarro.com.br/wp-content/uploads/2023/06/image-39.jpeg', marca: 'Volkswagen', preco: 30000, ano: 2019 },
+                    { id: 5, nome: 'Ford Focus', descricao: 'Descrição do Ford Focus', imagemUrl: 'https://www.topgear.com/sites/default/files/2022/04/51951944136_a4826c854b_k.jpg', marca: 'Ford', preco: 25000, ano: 2021 },
+                    { id: 6, nome: 'Chevrolet Onix', descricao: 'Descrição do Chevrolet Onix', imagemUrl: 'https://www.chevrolet.com.br/content/dam/chevrolet/mercosur/brazil/portuguese/index/cars/2023-onix/mov/04-images/onix-premier-at-turbo.jpg?imwidth=960', marca: 'Chevrolet', preco: 35000, ano: 2020 },
+                    // Adicionar mais carros conforme necessário
+                ];
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Detalhes do Carro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar-brand img {
+            max-width: 100px;
+            max-height: 40px;
+            margin-right: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        .hero-section {
+            background: url('https://images.hdqwalls.com/wallpapers/toyota-supra-mk5-er.jpg') center center no-repeat;
+            background-size: cover;
+            height: 300px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .car-details {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .car-details img {
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .car-details h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .car-details p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .car-details .specs {
+            margin-bottom: 20px;
+        }
+
+        .car-details .specs dt {
+            font-weight: bold;
+        }
+
+        .car-details .specs dd {
+            margin-bottom: 10px;
+        }
+
+        .car-details .btn-primary {
+            background-color: #ff4c4c;
+            border: none;
+        }
+
+        .car-details .btn-primary:hover {
+            background-color: #e04343;
+        }
+
+        .related-cars {
+            margin-top: 40px;
+        }
+
+        .related-cars .card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .related-cars .card:hover {
+            transform: translateY(-10px);
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+
+        .footer-icons i {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: #ecf0f1;
+        }
+
+        .footer-icons i:hover {
+            color: #ff4c4c;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="home.html">
+                <img src="https://uploaddeimagens.com.br/images/004/790/913/full/Captura_de_tela_2024-06-02_114525.png?1717339571" alt="Logo Carros" style="max-width: 100px; max-height: 40px; margin-right: 10px;">Marcos Motors
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Modelos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cadastro.html">Cadastro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrinho.html">Carrinho</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1>Detalhes do Carro</h1>
+        </div>
+        <!-- Detalhes do Carro -->
+        <div class="container my-4" v-if="carro">
+            <div class="row">
+                <div class="col-md-6">
+                    <img :src="carro.imagemUrl" class="img-fluid" alt="Imagem do carro">
+                </div>
+                <div class="col-md-6">
+                    <h1>{{ carro.nome }}</h1>
+                    <p>{{ carro.descricao }}</p>
+                    <h4>R$ {{ carro.preco.toLocaleString('pt-BR') }}</h4>
+                    <p><strong>Marca:</strong> {{ carro.marca }}</p>
+                    <p><strong>Ano:</strong> {{ carro.ano }}</p>
+                    <form @submit.prevent="adicionarAoCarrinho(carro.id)">
+                        <button type="submit" class="btn btn-success">Adicionar ao Carrinho</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="py-4 bg-dark text-white-50">
+            <div class="container text-center">
+                <small>© 2024 Marcos Motors. Todos os direitos reservados.</small>
+                <div class="footer-icons mt-2">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/AceStudios07"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/oimarcoscn/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://br.linkedin.com/in/marcos-correa-nunes-1b882a266"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                carro: null
+            },
+            methods: {
+                adicionarAoCarrinho(carroId) {
+                    // Método para adicionar o carro ao carrinho
+                    alert('Carro ' + carroId + ' adicionado ao carrinho!');
+                }
+            },
+            mounted() {
+                // Obter o ID do carro a partir da URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const carroId = parseInt(urlParams.get('id'));
+                
+                // Simular carregamento do carro com base no ID
+                const carros = [
+                { id: 1, nome: 'Ford Mustang', descricao: 'Descrição do Ford Mustang', imagemUrl: 'https://cdn.motor1.com/images/mgl/L3kkPl/s1/lancamento-ford-mustang-de-setima-geracao-no-brasil.jpg', marca: 'Ford', preco: 50000, ano: 2022 },
+                    { id: 2, nome: 'Chevrolet Camaro', descricao: 'Descrição do Chevrolet Camaro', imagemUrl: 'https://s2-autoesporte.glbimg.com/PqPPQ-men0qvcDkp37FxSWzYgQQ=/0x0:620x413/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2020/O/c/H06CbARCAMMs8AR9hNtg/2016-03-24-chevrolet-camaro-transformers-2010-1600x1200-wallpaper-01.png', marca: 'Chevrolet', preco: 60000, ano: 2021 },
+                    { id: 3, nome: 'Fiat Uno', descricao: 'Descrição do Fiat Uno', imagemUrl: 'https://quatrorodas.abril.com.br/wp-content/uploads/2016/11/56a280610e21630a3e0fc490qr-592-gb-uno-01.jpeg?quality=70&strip=all&strip=all', marca: 'Fiat', preco: 20000, ano: 2020 },
+                    { id: 4, nome: 'Volkswagen Gol', descricao: 'Descrição do Volkswagen Gol', imagemUrl: 'https://blog.olhonocarro.com.br/wp-content/uploads/2023/06/image-39.jpeg', marca: 'Volkswagen', preco: 30000, ano: 2019 },
+                    { id: 5, nome: 'Ford Focus', descricao: 'Descrição do Ford Focus', imagemUrl: 'https://www.topgear.com/sites/default/files/2022/04/51951944136_a4826c854b_k.jpg', marca: 'Ford', preco: 25000, ano: 2021 },
+                    { id: 6, nome: 'Chevrolet Onix', descricao: 'Descrição do Chevrolet Onix', imagemUrl: 'https://www.chevrolet.com.br/content/dam/chevrolet/mercosur/brazil/portuguese/index/cars/2023-onix/mov/04-images/onix-premier-at-turbo.jpg?imwidth=960', marca: 'Chevrolet', preco: 35000, ano: 2020 },
+                    // Adicionar mais carros conforme necessário
+                ];
+                this.carro = carros.find(carro => carro.id === carroId);
+            }
+        });
+    </script>
+    
+</body>
+</html>
